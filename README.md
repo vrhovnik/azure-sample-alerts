@@ -2,7 +2,7 @@
 
 ![how alerts work](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/media/alerts-overview/alerts.png)
 
-o create an alert rule, you must have:
+To create an alert rule, you must have:
 
 1. Read permission on the target resource of the alert rule.
 2. Write permission on the resource group in which the alert rule is created. If you're creating the alert rule from the
@@ -83,6 +83,8 @@ Get-AzVM -ResourceGroupName "MyRG" -Name "MyVM" -Status | Select-Object Name, Re
 Preview
 option ([recommended alerts](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/tutorial-monitor-vm-alert-recommended))
 
+![Deallocate](https://webeudatastorage.blob.core.windows.net/web/machine-signal-for-deallocate.png)
+
 If you are using Azure Functions, you an also take an advantage
 of [Start/Stop v2 integration](https://learn.microsoft.com/en-us/azure/azure-functions/start-stop-vms/overview).
 
@@ -135,6 +137,8 @@ InsightsMetrics
 | summarize arg_max(TimeGenerated, *) by tostring(t["vm.azm.ms/mountId"]), Computer // arg_max over TimeGenerated returns the latest record
 | project Computer, TimeGenerated, t["vm.azm.ms/mountId"], Val
 ``
+
+![machine space](https://webeudatastorage.blob.core.windows.net/web/machine-space.png)
 
 ## Planned maintenance alerts
 
